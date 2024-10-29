@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Asp Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body, h1, ul {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif;
+;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: white; /* Change text color to white */
+            background-color: rgb(3, 17, 39) /* Set background to black */
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0 auto; /* Centers the navigation links */
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            font-family: 'Merriweather', serif; /* Classic font */
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding: 8px;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        .nav-links a:hover {
+            color: #a41b1b; /* Slight hover effect */
+        }
+
+        /* White space after the header */
+        .white-space {
+            height: 40px; /* Adjust height as needed */
+            background-color: white; /* Set background to white */
+        }
+
+        /* Product Section */
+        .product-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .product-section h1 {
+            font-size: 36px;
+            color: #ffffff; /* White color for headings */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #ffffff; /* White color for paragraph text */
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-grid {
+            display: flex;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            padding: 20px 0; /* Adds space above and below the images */
+            scroll-snap-type: x mandatory; /* Enables snap scrolling */
+            gap: 20px; /* Adds space between the images */
+            scrollbar-width: thin; /* Firefox scrollbar width */
+            -ms-overflow-style: -ms-autohiding-scrollbar; /* IE scrollbar style */
+        }
+
+        .product-grid img {
+            width: 250px; /* Set a fixed width for the images */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+            scroll-snap-align: start; /* Snap alignment */
+            cursor: pointer; /* Indicates that the images are clickable */
+        }
+
+        .product-grid img:hover {
+            transform: scale(1.05); /* Scale effect */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+        }
+
+        /* Scrollbar styles */
+        .product-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .product-grid::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        .product-grid::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Modal styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure modal is on top */
+        }
+
+        #modalImage {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-modal {
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
+            font-size: 30px;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #a41b1b; /* Change color on hover */
+        }
+
+        /* Add this CSS to your existing styles */
+.underlined-heading {
+    position: relative;
+    font-size: 36px;
+    color: #ffffff; /* White color for headings */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 3D effect */
+}
+
+.underlined-heading::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px; /* Thickness of the underline */
+    background-color: #a41b1b; /* Red color */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Space between heading and underline */
+}
+
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color:#ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover{
+    color:#da1e37;
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-left h3, .footer-middle h3, .footer-right h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+    color: red;
+}
+
+.footer-left p, .footer-middle p, .footer-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer-right .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-right .social-icons a img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1); /* White icon effect */
+}
+
+.footer-right .social-icons a:hover img {
+    filter: invert(0.7); /* Slight hover effect */
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+        padding: 10px 0;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <nav>
+            <img src="asp logo.jpg" alt="Asp logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="design & development.html">Design & Development</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+
+    <!-- White space after the header -->
+    <div class="white-space"></div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <h1 class="underlined-heading">CO-EXTRUDED PROFILES</h1>
+        <p>
+            ASP Co-extruded profiles are made of two different compounds using solid EPDM and sponge EPDM with metal inserts. 
+            These profiles have varied applications where water, dust, and noise have to be kept out, such as in automobiles, 
+            industries, and canopies.
+        </p>
+
+        <!-- Product Image Section -->
+        <div class="product-grid">
+            <img src="coextrusion1.png" alt="Co-extruded profiles 1" onclick="viewImage(this)">
+            <img src="coextrusion2.png" alt="Co-extruded profiles 2" onclick="viewImage(this)">
+            <img src="coextrusion3.png" alt="Co-extruded profiles 3" onclick="viewImage(this)">
+            <img src="coextrusion4.png" alt="Co-extruded profiles 4" onclick="viewImage(this)">
+            <img src="coextrusion5.png" alt="Co-extruded profiles 5" onclick="viewImage(this)">
+            <img src="coextrusion6.png" alt="Co-extruded profiles 6" onclick="viewImage(this)">
+        </div>
+    </section>
+
+        <!-- White space before the next section -->
+        <div class="white-space"></div>
+
+        <!-- Wind Shields/Solid Rubber/Building Profile Section -->
+        <section class="product-section">
+            <h1 class="underlined-heading">WIND SHIELDS / SOLID RUBBER / BUILDING PROFILE</h1>
+            <p>
+                Solid profiles are often known as EPDM. Dense rubber profiles are made in different hardness as per customer specifications and are used for the following applications:
+                <ol>
+                    1.Wind shields and fixed window panels<br>
+                    2.Glazing rubbers for bus and truck body building<br>
+                    3.Glazing rubber for container sealing, railways, shipping applications, and others<br>
+                </ol>
+            </p>
+    
+            <!-- Product Image Section -->
+            <div class="product-grid">
+                <img src="solid1.png" alt="Solid profiles 1" onclick="viewImage(this)">
+                <img src="solid2.png" alt="Solid profiles 2" onclick="viewImage(this)">
+                <img src="solid3.png" alt="Solid profiles 3" onclick="viewImage(this)">
+                <img src="solid4.png" alt="Solid profiles 4" onclick="viewImage(this)">
+                <img src="solid5.png" alt="Solid profiles 5" onclick="viewImage(this)">
+                <img src="solid6.png" alt="Solid profiles 6" onclick="viewImage(this)">
+            </div>
+        </section>
+    
+        <!-- White space after the product section -->
+        <div class="white-space"></div>
+
+        <!-- Previous sections... -->
+
+<!-- White space before the next section -->
+<div class="white-space"></div>
+
+<!-- Sponge Profile Section -->
+<section class="product-section">
+    <h1 class="underlined-heading">SPONGE PROFILE</h1>
+    <p>
+        ASP cellular door profiles fit snugly into the hold of the auto body. With excellent compressibility, they are the best sealants for doors. 
+        These profiles provide better tightness and effectively keep air, dust, and water out. They also ensure a smooth closing of the doors, 
+        and when the vehicle runs, their anti-vibration quality ensures a silent drive.
+    </p>
+
+    <!-- Product Image Section -->
+    <div class="product-grid">
+        <img src="sponge1.png" alt="Sponge profile 1" onclick="viewImage(this)">
+        <img src="sponge2.png" alt="Sponge profile 2" onclick="viewImage(this)">
+        <img src="sponge3.png" alt="Sponge profile 3" onclick="viewImage(this)">
+        <img src="sponge4.png" alt="Sponge profile 4" onclick="viewImage(this)">
+        <img src="sponge5.png" alt="Sponge profile 5" onclick="viewImage(this)">
+    </div>
+</section>
+
+<!-- White space after the product section -->
+<div class="white-space"></div>
+
+<!-- White space before the next section -->
+<div class="white-space"></div>
+
+<!-- Flocked Glass Run Channels Section -->
+<section class="product-section">
+    <h1 class="underlined-heading">FLOCKED GLASS RUN CHANNELS</h1>
+    <p>
+        These are guides for windows which can be raised and lowered. They come in various sizes, must be functional and hard-wearing, though subject to severe conditions such as vibration, climate, and aerodynamic effects. 
+        ASP channels feature excellent air and water tightness even when the window is lowered or raised, which is very important in curved windows, which are much used in today's motor vehicles.
+    </p>
+
+    <!-- Add any images related to this section here -->
+    <div class="product-grid">
+        <!-- Example images, replace with actual image sources -->
+        <img src="flock1.png" alt="Flocked Glass Run Channel 1" onclick="viewImage(this)">
+        <img src="flock2.png" alt="Flocked Glass Run Channel 2" onclick="viewImage(this)">
+        <img src="flock3.png" alt="Flocked Glass Run Channel 3" onclick="viewImage(this)">
+        <img src="flock4.png" alt="Flocked Glass Run Channel 3" onclick="viewImage(this)">
+        <img src="flock5.png" alt="Flocked Glass Run Channel 1" onclick="viewImage(this)">
+    </div>
+</section>
+
+<!-- White space after the product section -->
+<div class="white-space"></div>
+
+<!-- Flocked Glass Run Channels Section -->
+<section class="product-section">
+    <h1 class="underlined-heading">STICKING PROFILE</h1>
+    <p>
+        These profiles are designed for application on vehicle bodies, specifically around doors and luggage compartments, to effectively keep out dust and water. Typically made from high-quality synthetic materials, the rubber tubes, often in sponge rubber form, provide the durability and elasticity required for long-lasting performance. These rubber profiles are technologically bonded to a PVC profile that incorporates a metal insert, allowing for quick and easy fitting to the vehicle body.
+    </p>
+
+    <!-- Add any images related to this section here -->
+    <div class="product-grid">
+        <!-- Example images, replace with actual image sources -->
+        <img src="sticking1.png" alt="Flocked Glass Run Channel 1" onclick="viewImage(this)">
+        <img src="sticking2.png" alt="Flocked Glass Run Channel 2" onclick="viewImage(this)">
+        <img src="sticking1.png" alt="Flocked Glass Run Channel 1" onclick="viewImage(this)">
+        <img src="sticking3.png" alt="Flocked Glass Run Channel 1" onclick="viewImage(this)">
+        
+    </div>
+</section>
+
+<!-- Modal for Image Viewing -->
+<div id="imageModal" onclick="closeModal()">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Large view">
+</div>
+
+<!-- JavaScript for Modal Functionality -->
+<script>
+    function viewImage(img) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        modal.style.display = "flex"; // Display the modal as flex to center content
+        modalImg.src = img.src; // Set the modal image source to the clicked image
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.style.display = "none"; // Hide the modal
+    }
+</script>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>ASP Group</h3>
+            <p>Since 1989, ASP Group has been committed to providing the highest quality rubber products to the automotive industry, continuously expanding our capabilities worldwide.</p>
+            <p>&copy; 2024 ASP Group. All rights reserved.</p>
+        </div>
+
+        <div class="footer-middle">
+            <h3>Contact Us</h3>
+            <p><strong>Address:</strong> D-78, Sector - 2, Noida,U.P.-201301</p>
+            <p><strong>Email:</strong> aspsouth@gmail.com</p>
+            <p><strong>Phone:</strong> +91 9840761231</p>
+        </div>
+
+        <div class="footer-right">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/aspgroupsindia/"><i class="fa-brands fa-facebook"></i>
+                <a href="https://x.com/aspsealing"><i class="fa-brands fa-square-twitter"></i>
+                <a href="https://www.instagram.com/aspservicesindia/"><i class="fa-brands fa-instagram"></i>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i>
+                    
+                        
+                
+            </div>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: black;
+}
+
+.header {
+    background-color: black;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0 auto; /* Centers the navigation links */
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    font-family: 'Merriweather', serif; /* Classic font */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding: 8px;
+}
+
+.nav-links a:hover {
+    color: #a41b1b; /* Slight hover effect */
+}
+
+
+/* About Section Styles */
+.about {
+    background-color: #050404;
+    padding: 50px 0;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.text-content {
+    flex: 1;
+    animation: slideIn 1s ease-out;
+}
+
+.image-content {
+    flex: 1;
+    text-align: right;
+}
+
+.image-content img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Keyframe Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* About Section Styles */
+.about {
+    background-color:floralwhite; /* Black background */
+    color: white; /* White text */
+    padding: 50px 0;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    background-color:rgb(10, 10, 10); /* Darker background for the box */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.text-content {
+    flex: 1;
+    animation: slideIn 1s ease-out;
+}
+
+.image-content {
+    flex: 1;
+    text-align: right;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+
+/* Importing a classy font for the About Us section */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* About Section Styles */
+.about {
+    background-color: #111010;
+    padding: 10px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    margin-left: -20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.text-content {
+    flex: 1;
+    z-index: 2;
+    position: relative;
+}
+
+.about-box {
+    background: linear-gradient(181.2deg, rgb(169, 229, 240) 10.5%, rgb(254, 254, 254) 86.8%);
+    color: #0c0c0c;
+    padding: 70px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease, background-size 0.6s ease, box-shadow 0.6s ease;
+    position: relative;
+    background-size: 100%; /* Initial background size */
+    width: 50%; /* Adjust width for better image alignment */
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    background-size: 110%; /* Zoom background on hover */
+}
+
+.image-content {
+    position: absolute;
+    right: -30px; /* Move the image into view */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure image appears behind the text */
+}
+
+.image-content img {
+    max-width: 400px; /* Resize the image appropriately */
+    height: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about-box h2, .about-box h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #101010;
+    cursor: pointer;
+    transition: text-decoration-color 0.4s ease;
+}
+
+.about-box h2:hover, .about-box h3:hover {
+    text-decoration: underline;
+    text-decoration-color: #8a022b;
+}
+
+.about-box p {
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-box p:first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: #6c0202;
+}
+
+/* View More Button Styling */
+.view-more-btn {
+    display: inline-block;
+    background-color: #a41b1b;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background-color: #8a022b;
+}
+
+
+.products-grid {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding: 20px 0; /* Adds space above and below the images */
+    scroll-snap-type: x mandatory; /* Enables snap scrolling */
+    gap: 20px; /* Adds space between the images */
+    scrollbar-width: thin; /* Firefox scrollbar width */
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* IE scrollbar style */
+    
+}
+.product-section{
+    background-color: rgb(3, 17, 39);
+    padding-top: 40px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 50px;
+}
+.product-section h1{
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+.threed-heading {
+    font-size: 36px;
+    color: #2c3e50;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Adds 3D effect */
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.products-grid img {
+    width: 250px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+    scroll-snap-align: start; /* Snap alignment */
+    cursor: pointer; /* Indicates that the images are clickable */
+}
+
+.products-grids img:hover {
+    transform: scale(1.05); /* Scale effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+/* Scrollbar styles */
+.products-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.products-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.products-grid::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+/* Modal styles */
+#imageModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure modal is on top */
+}
+
+#modalImage {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #a41b1b; /* Change color on hover */
+}
+
+/* Add this CSS to your existing styles */
+.underlined-heading {
+position: relative;
+font-size: 36px;
+color: #ffffff; /* White color for headings */
+margin-bottom: 20px;
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 3D effect */
+}
+
+.underlined-heading::after {
+content: '';
+display: block;
+width: 100%;
+height: 4px; /* Thickness of the underline */
+background-color: #a41b1b; /* Red color */
+position: absolute;
+left: 0;
+bottom: -5px; /* Space between heading and underline */
+}
+
+
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color:#ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover{
+    color:#da1e37;
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-left h3, .footer-middle h3, .footer-right h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+    color: red;
+}
+
+.footer-left p, .footer-middle p, .footer-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer-right .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-right .social-icons a img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1); /* White icon effect */
+}
+
+.footer-right .social-icons a:hover img {
+    filter: invert(0.7); /* Slight hover effect */
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+        padding: 10px 0;
+        }
+    }
+
+.white-space {
+    height: 40px; /* Adjust height as needed */
+    background-color: white; /* Set background to white */
+}
+
+
+/* New About Section Styling */
+/* General styles for the body */

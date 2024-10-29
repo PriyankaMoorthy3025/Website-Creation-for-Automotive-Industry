@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Asp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <nav>
+            <img src="asp logo.jpg" alt="Asp logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="design & development.html">Design & Development</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+
+    <!-- Slideshow Section -->
+<section class="slideshow-container">
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide1.jpg" alt="Innovative Solutions" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide2.jpg" alt="Reliable Performance" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide3.jpg" alt="Advanced Technology" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide4.jpg" alt="Advanced Technology" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide5.jpg" alt="Advanced Technology" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="slide-content">
+            <div class="image">
+                <img src="slide6.jpg" alt="Advanced Technology" width="1250px" height="500px">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Script for slideshow -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "flex";  
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
+
+
+
+<!-- About Section -->
+ <!-- About Section HTML -->
+<section class="about">
+    <div class="container">
+      <div class="text-content">
+        <div class="about-box">
+          <h2>About Us</h2>
+          <p>
+            ASP Group is a leader in the rubber industry, providing high-quality products to JCB, Volvo, Mahindra, and many more. Our commitment to innovation drives us to constantly enhance our services and solutions.
+          </p>
+          <h3>Our Mission</h3>
+          <p>
+            To lead the market with superior rubber products while maintaining a focus on customer satisfaction and sustainable practices.
+          </p>
+          <a href="about.html" class="view-more-btn">View More</a>
+        </div>
+      </div>
+      <div class="image-content">
+        <img src="company.jpg" alt="Company Image">
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section">
+    <h1 class="threed-heading">OUR PRODUCTS</h1>
+    <h2 class="underlined-heading">Delivering Craft With Excellence</h2>
+    <p>ASP is committed to becoming a leading automotive supplier by Providing reliable and cost-effective solutions through Continuous Improvement, ensuring a high level of customer satisfaction by meeting their stated and implied needs and requirements.</p>
+  <div class="products-grid">
+    <img src="product.jpg" alt="product 1" onclick="viewImage(this)">
+    <img src="product1.jpg" alt="product 2" onclick="viewImage(this)">
+    <img src="product2.jpg" alt="product 3" onclick="viewImage(this)">
+    <img src="product3.jpg" alt="product 4" onclick="viewImage(this)">
+    <img src="product4.jpg" alt="product 5" onclick="viewImage(this)">
+    <img src="product5.jpg" alt="product 6" onclick="viewImage(this)">
+    <img src="product6.jpg" alt="product 6" onclick="viewImage(this)">
+    <img src="product7.jpg" alt="product 6" onclick="viewImage(this)">
+</div>
+<a href="Product.html" class="view-more-btn">View More</a>
+  </section>
+ <!-- Modal for Image Viewing -->
+ <div id="imageModal" onclick="closeModal()">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Large view">
+</div>
+
+<!-- JavaScript for Modal Functionality -->
+<script>
+    function viewImage(img) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        modal.style.display = "flex"; // Display the modal as flex to center content
+        modalImg.src = img.src; // Set the modal image source to the clicked image
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.style.display = "none"; // Hide the modal
+    }
+</script>
+
+  <!-- Footer Section -->
+<footer>
+    <div class="white-space"></div>
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>ASP Sealing Products Ltd</h3>
+            <p>Since 1989, ASP Group has been committed to providing the highest quality rubber products to the automotive industry, continuously expanding our capabilities worldwide.</p>
+            <p>&copy; 2024 ASP Group. All rights reserved.</p>
+        </div>
+
+        <div class="footer-middle">
+            <h3>Contact Us</h3>
+            <p><strong>Address:</strong> D-78, Sector - 2, Noida,U.P.-201301</p>
+            <p><strong>Email:</strong> aspsouth@gmail.com</p>
+            <p><strong>Phone:</strong> +91 9840761231</p>
+        </div>
+
+        <div class="footer-right">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/aspgroupsindia/"><i class="fa-brands fa-facebook"></i>
+                <a href="https://x.com/aspsealing"><i class="fa-brands fa-square-twitter"></i>
+                <a href="https://www.instagram.com/aspservicesindia/"><i class="fa-brands fa-instagram"></i>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i>
+                    
+                        
+                
+            </div>
+        </div>
+    </div>
+</footer>
